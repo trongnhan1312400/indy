@@ -10,16 +10,14 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    sovrin_output = subprocess.check_output(["sovrin"], stdout=subprocess.PIPE, shell=True)
-    sovrin_output = sovrin_output.stdout
+    sovrin_output = subprocess.check_output(["sovrin"], stderr=subprocess.STDOUT, shell=True)
 
     if sovrin_version in sovrin_output:
         print("Version is displayed!")
     else:
         print("Version is not displayed!")
 
-    seed_output = subprocess(["new key with seed " + seed_trustee01], stdout=subprocess.PIPE, shell=True)
-    seed_output = seed_output.stdout
+    seed_output = subprocess(["new key with seed " + seed_trustee01], stderr=subprocess.STDOUT, shell=True)
     if new_wallet_created in seed_output:
         print("Wallet default is created!")
     else:
@@ -27,16 +25,16 @@ async def test():
 
     print("Seeding complete")
 
-    subprocess(["connect test"], stdout=subprocess.PIPE, shell=True)
+    subprocess(["connect test"], stderr=subprocess.STDOUT, shell=True)
     print("Connect test")
 
-    subprocess(["disconnect"], stdout=subprocess.PIPE, shell=True)
+    subprocess(["disconnect"], stderr=subprocess.STDOUT, shell=True)
     print("Disconnect")
 
-    subprocess(["connect test"], stdout=subprocess.PIPE, shell=True)
+    subprocess(["connect test"], stderr=subprocess.STDOUT, shell=True)
     print("Connect test")
 
-    subprocess(["exit"], stdout=subprocess.PIPE, shell=True)
+    subprocess(["exit"], stderr=subprocess.STDOUT, shell=True)
 
     print("\nEnd test")
 
