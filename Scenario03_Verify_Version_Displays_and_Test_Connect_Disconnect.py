@@ -10,7 +10,7 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    sovrin_output = subprocess.check_output("sovrin", stderr=subprocess.STDOUT, shell=True)
+    sovrin_output = await subprocess.check_output("sovrin", stderr=subprocess.STDOUT, shell=True)
 
     if sovrin_version in sovrin_output:
         print("Version is displayed!")
