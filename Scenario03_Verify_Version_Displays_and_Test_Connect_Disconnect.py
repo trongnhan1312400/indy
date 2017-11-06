@@ -1,28 +1,44 @@
 from indy import agent, ledger, pool, signus
 import json
+import subprocess
 import asyncio
 
 
 async def test():
-    seed_trustee1 = "000000000000000000000000Steward1"
+    seed_trustee01 = "000000000000000000000000Steward1"
+    sovrin_version = "Running Sovrin 1.1.4.3"
+    new_wallet_created = "New wallet Default created"
 
-    print("Begin")
+    print("Begin test\n")
+    sovrin_output = subprocess.check_output(["sovrin"], stdout=subprocess.PIPE, shell=True)
+    sovrin_output = sovrin_output.stdout
 
-    print("Connect to test")
-    pool_handle = await pool.open_pool_ledger("test", None)
-    print(pool_handle)
+    if sovrin_version in sovrin_output:
+        print("Version is displayed!")
+    else:
+        print("Version is not displayed!")
 
-    print("new key seed 000000000000000000000000Steward1")
-    (sender_did, sender_verkey, sender_pk) = await signus.create_and_store_my_did("default", json.dumps({"seed": seed_trustee1}))
+    seed_output = subprocess(["new key with seed " + seed_trustee01], stdout=subprocess.PIPE, shell=True)
+    seed_output = seed_output.stdout
+    if new_wallet_created in seed_output:
+        print("Wallet default is created!")
+    else:
+        print("Wallet default is not created!")
 
-    print("close pool")
-    await pool.close_pool_ledger(pool_handle)
+    print("Seeding complete")
 
-    print("reconnect pool")
-    pool_handle = await pool.open_pool_ledger("test", None)
+    subprocess(["connect test"], stdout=subprocess.PIPE, shell=True)
+    print("Connect test")
 
-    await pool.close_pool_ledger(pool_handle)
+    subprocess(["disconnect"], stdout=subprocess.PIPE, shell=True)
+    print("Disconnect")
 
+    subprocess(["connect test"], stdout=subprocess.PIPE, shell=True)
+    print("Connect test")
+
+    subprocess(["exit"], stdout=subprocess.PIPE, shell=True)
+
+    print("\nEnd test")
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(test())
