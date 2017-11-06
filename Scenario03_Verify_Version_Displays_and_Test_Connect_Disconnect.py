@@ -1,5 +1,6 @@
 from indy import agent, ledger, pool, signus
 import json
+import asyncio
 
 
 async def test():
@@ -23,4 +24,8 @@ async def test():
     await pool.close_pool_ledger(pool_handle)
 
 
-test()
+loop = asyncio.get_event_loop()
+loop.run_until_complete(test())
+loop.close()
+
+print("End")
