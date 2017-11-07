@@ -12,7 +12,9 @@ async def test():
     print("Begin test\n")
     proc = subprocess.Popen("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
 
-    print(proc.communicate(input="connect test\nexit\n")[0])
+    print(proc.communicate(input="connect test")[0])
+    
+    print(proc.communicate(input="exit")[0])
 
     print("\nEnd test")
 
@@ -22,3 +24,4 @@ loop.run_until_complete(test())
 loop.close()
 
 print("End")
+
