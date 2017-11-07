@@ -10,7 +10,7 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    sovrin_output = subprocess.check_output(["sovrin"], shell=True)
+    sovrin_output = subprocess.run("sovrin", shell=True)
     sovrin_output = sovrin_output.stdout
 
     if sovrin_version in sovrin_output:
@@ -18,7 +18,7 @@ async def test():
     else:
         print("Version is not displayed!")
 
-    seed_output = await subprocess.check_output(["new key with seed " + seed_trustee01], shell=True)
+    seed_output = subprocess.run("new key with seed " + seed_trustee01)
     seed_output = seed_output.stdout
     if new_wallet_created in seed_output:
         print("Wallet default is created!")
@@ -39,6 +39,7 @@ async def test():
     subprocess.check_output(["exit"], shell=True)
 
     print("\nEnd test")
+
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(test())
