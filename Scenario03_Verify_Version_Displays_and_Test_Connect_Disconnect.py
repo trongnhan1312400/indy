@@ -14,11 +14,11 @@ async def test():
     pool_config_txn = ".sovrin/pool_transactions_sandbox_genesis"
     pool_config = json.dumps({"genesis_txn": str(pool_config_txn)})
     try:
-        pool.create_pool_ledger_config(pool_name, pool_config)
+        await pool.create_pool_ledger_config(pool_name, pool_config)
     except IndyError as E:
         print("Try to create new pool")
-        pool.delete_pool_ledger_config(pool_name)
-        pool.create_pool_ledger_config(pool_name, pool_config)
+        await pool.delete_pool_ledger_config(pool_name)
+        await pool.create_pool_ledger_config(pool_name, pool_config)
 
     try:
         await wallet.create_wallet(pool_name, wallet_name, None, None, None)
@@ -36,7 +36,7 @@ async def test():
 
     print("Disconnect")
     await pool.close_pool_ledger(pool_handle)
-    
+
     print("Reconnect")
     pool_handle = await pool.open_pool_ledger(pool_name)
 
