@@ -7,6 +7,7 @@ import asyncio
 
 async def test():
     seed_trustee01 = "000000000000000000000000Steward1"
+    wallet_name = "test_wallet"
     pool_name = "pool_genesis_test_s3"
     sovrin_version = "Running Sovrin 1.1.4.3"
     new_wallet_created = "New wallet Default created"
@@ -15,13 +16,14 @@ async def test():
     try:
         pool.create_pool_ledger_config(pool_name, pool_config)
     except IndyError as E:
-        print(E.error_code)
+        print(str(E))
 
-    wallet_handle = await wallet.open_wallet("default", None, None)
+    await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+    wallet_handle = await wallet.open_wallet(wallet_name, None, None)
 
     await signus.create_and_store_my_did(wallet_handle, json.dump({"seed": seed_trustee01}))
 
-    pool_handle = await pool.open_pool_ledger(pool_name)
+    pool_handle = await pool.open_pool_ledger(pool_name, None)
 
     await pool.close_pool_ledger(pool_handle)
     pool_handle = await pool.open_pool_ledger(pool_name)
