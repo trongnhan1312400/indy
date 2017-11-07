@@ -12,10 +12,12 @@ async def test():
     print("Begin test\n")
     proc = subprocess.Popen("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-    proc.stdin.write("connect test\n".encode("UTF-8"))
+    proc.stdin.write("connect test\n".encode())
 
-    proc.stdin.write("exit\n".encode("UTF-8"))
-    
+    proc.stdin.write("exit\n".encode())
+
+    proc.stdin.flush()
+
     print(proc.communicate()[0])
 
     print("\nEnd test")
