@@ -2,6 +2,7 @@ from indy import agent, ledger, pool, signus
 import json
 import subprocess
 import asyncio
+import sys
 
 
 async def test():
@@ -10,15 +11,13 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    proc = subprocess.Popen("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    subprocess.run("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-    proc.stdin.write("connect test\n".encode())
+    sys.stdin.write("connect test\n".encode())
+    sys.stdin.flush()
 
-    proc.stdin.write("exit\n".encode())
-
-    proc.stdin.flush()
-
-    print(proc.communicate()[0])
+    sys.stdin.write("exit\n".encode())
+    sys.stdin.flush()
 
     print("\nEnd test")
 
