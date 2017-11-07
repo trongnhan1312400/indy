@@ -15,6 +15,8 @@ async def test():
     proc.stdin.write("connect test\n".encode("UTF-8"))
 
     proc.stdin.write("exit\n".encode("UTF-8"))
+    
+    print(proc.communicate()[0])
 
     print("\nEnd test")
 
