@@ -13,15 +13,12 @@ async def test():
     new_wallet_created = "New wallet Default created"
     pool_config_txn = ".sovrin/pool_transactions_sandbox_genesis"
     pool_config = json.dumps({"genesis_txn": str(pool_config_txn)})
-    try:
-        pool.create_pool_ledger_config(pool_name, pool_config)
-    except IndyError as E:
-        print(str(E))
 
     try:
         await wallet.create_wallet(pool_name, wallet_name, None, None, None)
     except IndyError as E:
         await wallet.delete_wallet(wallet_name, None)
+        print("Try to create wallet")
         await wallet.create_wallet(pool_name, wallet_name, None, None, None)
 
     wallet_handle = await wallet.open_wallet(wallet_name, None, None)
