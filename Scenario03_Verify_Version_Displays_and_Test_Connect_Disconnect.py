@@ -1,26 +1,30 @@
-from indy import agent, ledger, pool, signus
+from indy import agent, ledger, pool, signus, wallet
 import json
+from indy.error import IndyError
 import subprocess
 import asyncio
 
 
 async def test():
     seed_trustee01 = "000000000000000000000000Steward1"
+    pool_name = "pool_genesis_test_s3"
     sovrin_version = "Running Sovrin 1.1.4.3"
     new_wallet_created = "New wallet Default created"
+    pool_config_txn = ".sovrin/pool_transactions_sandbox_genesis"
+    pool_config = json.dumps({"genesis_txn": str(pool_config_txn)})
+    try:
+        pool.create_pool_ledger_config(pool_name, pool_config)
+    except IndyError as E:
+        print(E.error_code)
 
-    print("Begin test\n")
-    proc = subprocess.Popen("sovrin",
-                            shell=True,
-                            stdin=subprocess.PIPE,
-                            stdout=subprocess.PIPE,
-                            universal_newlines=True)
+    wallet_handle = await wallet.open_wallet("default", None, None)
 
-    print(proc.communicate(input="connect test\n")[0])
+    await signus.create_and_store_my_did(wallet_handle, json.dump({"seed": seed_trustee01}))
 
-    print(proc.communicate(input="exit")[0])
+    pool_handle = await pool.open_pool_ledger(pool_name)
 
-    print("\nEnd test")
+    await pool.close_pool_ledger(pool_handle)
+    pool_handle = await pool.open_pool_ledger(pool_name)
 
 
 loop = asyncio.get_event_loop()
