@@ -10,9 +10,9 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    proc = subprocess.Popen("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
+    proc = subprocess.Popen("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-    print(proc.communicate(input="connect test\nexit\n")[0])
+    print(proc.communicate(input="connect test\r\nexit\r\n")[0])
 
     print("\nEnd test")
 
