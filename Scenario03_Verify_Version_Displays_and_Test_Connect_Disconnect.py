@@ -13,10 +13,10 @@ async def test():
     print("Begin test\n")
     subprocess.run("sovrin", stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-    sys.stdin.write("connect test\n".encode())
+    sys.stdin.write("connect test\n")
     sys.stdin.flush()
 
-    sys.stdin.write("exit\n".encode())
+    sys.stdin.write("exit\n")
     sys.stdin.flush()
 
     print("\nEnd test")
