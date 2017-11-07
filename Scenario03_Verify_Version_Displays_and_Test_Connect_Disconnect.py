@@ -18,7 +18,12 @@ async def test():
     except IndyError as E:
         print(str(E))
 
-    await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+    try:
+        await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+    except IndyError as E:
+        await wallet.delete_wallet(wallet_name, None)
+        await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+
     wallet_handle = await wallet.open_wallet(wallet_name, None, None)
 
     await signus.create_and_store_my_did(wallet_handle, json.dumps({"seed": seed_trustee01}))
