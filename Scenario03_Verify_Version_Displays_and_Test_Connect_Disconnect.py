@@ -2,8 +2,15 @@ from indy import agent, ledger, pool, signus, wallet
 import json
 from indy.error import IndyError
 import subprocess
+import os
 import asyncio
 
+def test_prep():
+    if os.path.isfile(".sovrin/wallets/no-env/default.wallet"):
+        os.remove(".sovrin/wallets/no-env/default.wallet")
+
+    if os.path.isfile(".sovrin/wallets/test/default.wallet"):
+        os.remove(".sovrin/wallets/test/default.wallet")
 
 async def test():
     seed_trustee01 = "000000000000000000000000Steward1"
@@ -20,27 +27,32 @@ async def test():
         await pool.delete_pool_ledger_config(pool_name)
         await pool.create_pool_ledger_config(pool_name, pool_config)
 
-    try:
-        await wallet.create_wallet(pool_name, wallet_name, None, None, None)
-    except IndyError as E:
-        print("Try to create wallet")
-        await wallet.delete_wallet(wallet_name, None)
-        await wallet.create_wallet(pool_name, wallet_name, None, None, None)
-    
-    wallet_handle = await wallet.open_wallet(wallet_name, None, None)
-    
-    await signus.create_and_store_my_did(wallet_handle, json.dumps({"seed": seed_trustee01}))
-    
+    # try:
+    #     await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+    # except IndyError as E:
+    #     print("Try to create wallet")
+    #     await wallet.delete_wallet(wallet_name, None)
+    #     await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+
+    await signus.create_and_store_my_did(None, json.dumps({"seed": seed_trustee01}))
+    if not os.path.isfile(".sovrin/wallets/no-env/default.wallet"):
+        print("Fail")
+
     print("Connect")
     pool_handle = await pool.open_pool_ledger(pool_name, None)
-    
+    if os.path.isfile(".sovrin/wallets/no-env/default.wallet"):
+        print("Fail")
+    elif not os.path.isfile(".sovrin/wallets/test/default.wallet"):
+        print("Fail")
+
     print("Disconnect")
     await pool.close_pool_ledger(pool_handle)
-    
+
     print("Reconnect")
     pool_handle = await pool.open_pool_ledger(pool_name, None)
 
 
+test_prep()
 loop = asyncio.get_event_loop()
 loop.run_until_complete(test())
 loop.close()
