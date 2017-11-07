@@ -20,25 +20,25 @@ async def test():
         await pool.delete_pool_ledger_config(pool_name)
         await pool.create_pool_ledger_config(pool_name, pool_config)
 
-    # try:
-    #     await wallet.create_wallet(pool_name, wallet_name, None, None, None)
-    # except IndyError as E:
-    #     print("Try to create wallet")
-    #     await wallet.delete_wallet(wallet_name, None)
-    #     await wallet.create_wallet(pool_name, wallet_name, None, None, None)
-    #
-    # wallet_handle = await wallet.open_wallet(wallet_name, None, None)
-    #
-    # await signus.create_and_store_my_did(wallet_handle, json.dumps({"seed": seed_trustee01}))
-    #
-    # print("Connect")
-    # pool_handle = await pool.open_pool_ledger(pool_name, None)
-    #
-    # print("Disconnect")
-    # await pool.close_pool_ledger(pool_handle)
-    #
-    # print("Reconnect")
-    # pool_handle = await pool.open_pool_ledger(pool_name, None)
+    try:
+        await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+    except IndyError as E:
+        print("Try to create wallet")
+        await wallet.delete_wallet(wallet_name, None)
+        await wallet.create_wallet(pool_name, wallet_name, None, None, None)
+    
+    wallet_handle = await wallet.open_wallet(wallet_name, None, None)
+    
+    await signus.create_and_store_my_did(wallet_handle, json.dumps({"seed": seed_trustee01}))
+    
+    print("Connect")
+    pool_handle = await pool.open_pool_ledger(pool_name, None)
+    
+    print("Disconnect")
+    await pool.close_pool_ledger(pool_handle)
+    
+    print("Reconnect")
+    pool_handle = await pool.open_pool_ledger(pool_name, None)
 
 
 loop = asyncio.get_event_loop()
