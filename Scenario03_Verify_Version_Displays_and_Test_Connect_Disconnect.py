@@ -18,7 +18,7 @@ async def test():
     else:
         print("Version is not displayed!")
 
-    seed_output = subprocess.run("new key with seed " + seed_trustee01)
+    seed_output = subprocess.run("new key with seed " + seed_trustee01, shell=True)
     seed_output = seed_output.stdout
     if new_wallet_created in seed_output:
         print("Wallet default is created!")
