@@ -10,33 +10,11 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    sovrin_output = subprocess.run("sovrin", shell=True)
-    sovrin_output = sovrin_output.stdout
+    proc = subprocess.Popen("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
-    if sovrin_version in sovrin_output:
-        print("Version is displayed!")
-    else:
-        print("Version is not displayed!")
+    proc.stdin.write("connect test\n")
 
-    seed_output = subprocess.run("new key with seed " + seed_trustee01, shell=True)
-    seed_output = seed_output.stdout
-    if new_wallet_created in seed_output:
-        print("Wallet default is created!")
-    else:
-        print("Wallet default is not created!")
-
-    print("Seeding complete")
-
-    subprocess.check_output(["connect test"], shell=True)
-    print("Connect test")
-
-    subprocess.check_output(["disconnect"], shell=True)
-    print("Disconnect")
-
-    subprocess.check_output(["connect test"], shell=True)
-    print("Connect test")
-
-    subprocess.check_output(["exit"], shell=True)
+    proc.stdin.write("exit\n")
 
     print("\nEnd test")
 
@@ -46,4 +24,3 @@ loop.run_until_complete(test())
 loop.close()
 
 print("End")
-
