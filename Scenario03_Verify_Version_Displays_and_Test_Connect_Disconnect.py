@@ -34,7 +34,7 @@ async def test():
     #     await wallet.delete_wallet(wallet_name, None)
     #     await wallet.create_wallet(pool_name, wallet_name, None, None, None)
 
-    await signus.create_and_store_my_did(None, json.dumps({"seed": seed_trustee01}))
+    await signus.create_and_store_my_did(0, json.dumps({"seed": seed_trustee01}))
     if not os.path.isfile(".sovrin/wallets/no-env/default.wallet"):
         print("Fail")
 
