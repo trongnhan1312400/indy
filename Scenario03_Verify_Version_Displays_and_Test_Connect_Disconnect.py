@@ -38,7 +38,7 @@ async def test():
     await pool.close_pool_ledger(pool_handle)
 
     print("Reconnect")
-    pool_handle = await pool.open_pool_ledger(pool_name)
+    pool_handle = await pool.open_pool_ledger(pool_name, None)
 
 
 loop = asyncio.get_event_loop()
