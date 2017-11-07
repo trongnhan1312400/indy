@@ -8,7 +8,7 @@ import asyncio
 async def test():
     seed_trustee01 = "000000000000000000000000Steward1"
     wallet_name = "test_wallet"
-    pool_name = "pool_genesis_test_s3"
+    pool_name = "pool_genesis_test1_s3"
     sovrin_version = "Running Sovrin 1.1.4.3"
     new_wallet_created = "New wallet Default created"
     pool_config_txn = ".sovrin/pool_transactions_sandbox_genesis"
