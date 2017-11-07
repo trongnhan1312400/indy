@@ -21,7 +21,7 @@ async def test():
     await wallet.create_wallet(pool_name, wallet_name, None, None, None)
     wallet_handle = await wallet.open_wallet(wallet_name, None, None)
 
-    await signus.create_and_store_my_did(wallet_handle, json.dump({"seed": seed_trustee01}))
+    await signus.create_and_store_my_did(wallet_handle, json.dumps({"seed": seed_trustee01}))
 
     pool_handle = await pool.open_pool_ledger(pool_name, None)
 
