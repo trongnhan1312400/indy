@@ -11,7 +11,7 @@ async def test():
     new_wallet_created = "New wallet Default created"
 
     print("Begin test\n")
-    subprocess.run("sovrin", shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    subprocess.run("sovrin", stdin=subprocess.PIPE, stdout=subprocess.PIPE)
 
     sys.stdin.write("connect test\n".encode())
     sys.stdin.flush()
