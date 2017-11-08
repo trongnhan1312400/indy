@@ -81,7 +81,7 @@ async def do():
         sys.exit[1]
 
     try:
-        MyVars.wallet_handle = wallet.open_wallet(MyVars.wallet_name, None, None)
+        MyVars.wallet_handle = await wallet.open_wallet(MyVars.wallet_name, None, None)
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
