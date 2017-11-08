@@ -45,7 +45,10 @@ logging.basicConfig(level=logging.INFO)
 def test_prep():
     print(Colors.HEADER + "\n\tCheck if the wallet and pool for this test already exist and delete them...\n"
           + Colors.ENDC)
+    import os
 
+    os.path.expanduser('~')
+    
     if os.path.exists(".indy/wallet/" + MyVars.wallet_name):
         try:
             shutil.rmtree(".indy/wallet/" + MyVars.wallet_name)
@@ -67,7 +70,6 @@ def test_prep():
 
 async def add_nym(submitter_did, target_did, ver_key, alias, role, can_add):
     nym_request = await ledger.build_nym_request(submitter_did, target_did, ver_key, alias, role)
-    print(Colors.HEADER + "\n\t" + nym_request + "\n" + Colors.ENDC)
     try:
         await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, submitter_did, nym_request)
         if can_add:
@@ -227,8 +229,8 @@ async def do():
 
     # 5. Using default Trustee to create Trustee1.
     print(Colors.HEADER + "\n\t5.  Using default Trustee to create Trustee1\n" + Colors.ENDC)
-    MyVars.test_results["Test 5"] = await add_nym(default_trustee_did, trustee1_did, "~JsqrSipV963hwbojxwR2fg",
-                                                  None, "TRUSTEE", can_add=True)
+    MyVars.test_results["Test 5"] = await add_nym(default_trustee_did, trustee1_did, trustee1_verkey,
+                                                  None, MyVars.roles[0], can_add=True)
 
     # 6. Verify GET NYM.
     print(Colors.HEADER + "\n\t6.  Verify GET NYM - Trustee1\n" + Colors.ENDC)
@@ -389,7 +391,7 @@ async def do():
                                                    None, MyVars.roles[3], can_add=True)
 
     # 32. Close pool ledger and wallet.
-    print(Colors.HEADER + "\n\t8.  Close pool ledger and wallet\n" + Colors.ENDC)
+    print(Colors.HEADER + "\n\t32.  Close pool ledger and wallet\n" + Colors.ENDC)
     try:
         await wallet.close_wallet(MyVars.wallet_handle)
         await pool.close_pool_ledger(MyVars.pool_handle)
@@ -397,7 +399,7 @@ async def do():
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
     # 33. Delete wallet.
-    print(Colors.HEADER + "\n\t9.  Delete pool ledger and wallet\n" + Colors.ENDC)
+    print(Colors.HEADER + "\n\t33.  Delete pool ledger and wallet\n" + Colors.ENDC)
     try:
         await wallet.delete_wallet(MyVars.wallet_name, None)
         await pool.delete_pool_ledger_config(MyVars.pool_name)
