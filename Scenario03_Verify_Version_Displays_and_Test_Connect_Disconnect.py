@@ -128,7 +128,7 @@ def final_result():
 def test():
     test_prep()
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(test())
+    loop.run_until_complete(do())
     loop.close()
     final_result()
     
