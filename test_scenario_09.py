@@ -146,7 +146,7 @@ async def do():
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
     # 4. Create DIDs.
-    print(Colors.HEADER + "\n\t3.  Create DIDs\n" + Colors.ENDC)
+    print(Colors.HEADER + "\n\t4.  Create DIDs\n" + Colors.ENDC)
     (default_trustee_did,
      default_trustee_verkey,
      default_trustee_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
