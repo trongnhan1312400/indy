@@ -227,7 +227,7 @@ async def do():
 
     # 5. Using default Trustee to create Trustee1.
     print(Colors.HEADER + "\n\t5.  Using default Trustee to create Trustee1\n" + Colors.ENDC)
-    MyVars.test_results["Test 5"] = await add_nym(default_trustee_did, trustee1_did, trustee1_verkey,
+    MyVars.test_results["Test 5"] = await add_nym(default_trustee_did, trustee1_did, "~JsqrSipV963hwbojxwR2fg",
                                                   None, "TRUSTEE", can_add=True)
 
     # 6. Verify GET NYM.
