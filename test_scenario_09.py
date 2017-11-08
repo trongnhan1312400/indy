@@ -151,6 +151,9 @@ async def do():
      default_trustee_verkey,
      default_trustee_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
                                                                 json.dumps({"seed": seed_default_trustee}))
+    print(Colors.HEADER + "\n\t" + default_trustee_did + "\n" + Colors.ENDC)
+    print(Colors.HEADER + "\n\t" + default_trustee_verkey + "\n" + Colors.ENDC)
+    print(Colors.HEADER + "\n\t" + default_trustee_pk + "\n" + Colors.ENDC)
 
     (trustee1_did,
      trustee1_verkey,
