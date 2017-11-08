@@ -41,21 +41,21 @@ def test_prep():
     print(Colors.HEADER + "\n\tCheck if the wallet and pool for this test already exist and delete them...\n"
           + Colors.ENDC)
 
-    if os.path.exists(".sovrin/wallets/no-env/" + MyVars.wallet_name):
+    if os.path.exists(".indy/wallet/" + MyVars.wallet_name):
         try:
-            shutil.rmtree(".sovrin/wallets/no-env/" + MyVars.wallet_name)
+            shutil.rmtree(".indy/wallet/" + MyVars.wallet_name)
         except IOError as E:
             print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    if os.path.exists(".sovrin/wallets/test/" + MyVars.wallet_name):
+    if os.path.exists(".indy/wallet/" + MyVars.wallet_name):
         try:
-            shutil.rmtree(".sovrin/wallets/test/" + MyVars.wallet_name)
+            shutil.rmtree(".indy/wallet/" + MyVars.wallet_name)
         except IOError as E:
             print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    if os.path.exists(".sovrin/" + MyVars.pool_name):
+    if os.path.exists(".indy/pool/" + MyVars.pool_name):
         try:
-            shutil.rmtree(".sovrin/" + MyVars.pool_name)
+            shutil.rmtree(".indy/pool/" + MyVars.pool_name)
         except IOError as E:
             print(Colors.FAIL + str(E) + Colors.ENDC)
 
