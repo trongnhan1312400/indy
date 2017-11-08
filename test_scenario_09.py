@@ -29,7 +29,7 @@ class MyVars:
     wallet_handle = 0
     pool_name = "pool_genesis_test9"
     wallet_name = "test_wallet9"
-    roles = ("TRUSTEE", "STEWARD", "TRUST_ANCHOR", "TGB", "")
+    roles = ["TRUSTEE", "STEWARD", "TRUST_ANCHOR", "TGB", ""]
     test_results = {'Test 5': False, 'Test 6': False, 'Test 7': False, 'Test 8': False, 'Test 9': False,
                     'Test 10': False, 'Test 11': False, 'Test 12': False, 'Test 13': False, 'Test 14': False,
                     'Test 15': False, 'Test 16': False, 'Test 17': False, 'Test 18': False, 'Test 19': False,
@@ -151,9 +151,6 @@ async def do():
      default_trustee_verkey,
      default_trustee_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
                                                                 json.dumps({"seed": seed_default_trustee}))
-    print(Colors.HEADER + "\n\t" + default_trustee_did + "\n" + Colors.ENDC)
-    print(Colors.HEADER + "\n\t" + default_trustee_verkey + "\n" + Colors.ENDC)
-    print(Colors.HEADER + "\n\t" + default_trustee_pk + "\n" + Colors.ENDC)
 
     (trustee1_did,
      trustee1_verkey,
