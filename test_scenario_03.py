@@ -94,8 +94,8 @@ async def do():
     print(Colors.HEADER + "\n\t5.  Connect test\n" + Colors.ENDC)
     try:
         MyVars.pool_handle = await pool.open_pool_ledger(MyVars.pool_name, None)
-    except IndyError as E:
         MyVars.test_results["Test 5"] = True
+    except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
     print(Colors.HEADER + "\n\t6.  Disconnect\n" + Colors.ENDC)
