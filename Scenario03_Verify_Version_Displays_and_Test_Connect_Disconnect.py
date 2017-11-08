@@ -81,13 +81,13 @@ async def do():
         sys.exit[1]
 
     try:
-        MyVars.wallet_handle = wallet.open_wallet(MyVars.wallet_name, None)
+        MyVars.wallet_handle = wallet.open_wallet(MyVars.wallet_name, None, None)
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
     print(Colors.HEADER + "\n\t4. Create DID's\n" + Colors.ENDC)
     try:
-        await signus.create_and_store_my_did(None, json.dumps({"seed": seed_trustee01}))
+        await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_trustee01}))
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
@@ -131,6 +131,6 @@ def test():
     loop.run_until_complete(do())
     loop.close()
     final_result()
-    
-    
+
+
 test()
