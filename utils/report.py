@@ -13,10 +13,10 @@ class TestReport:
     '''
 
     def __init__(self, test_case_name):
-        __test_result = {}
-        __test_result["tescase"] = test_case_name
-        __test_result["result"] = True
-        __test_result["starttime"] = str(time.strftime("%Y%m%d_%H:%M:%S"))
+        self.__test_result = {}
+        self.__test_result["tescase"] = test_case_name
+        self.__test_result["result"] = True
+        self.__test_result["starttime"] = str(time.strftime("%Y%m%d_%H:%M:%S"))
 
     def set_result(self, result):
         self.__test_result["result"] = result
