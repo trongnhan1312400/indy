@@ -35,7 +35,8 @@ class MyVars:
                     'Test 20': False, 'Test 21': False, 'Test 22': False, 'Test 23': False, 'Test 24': False,
                     'Test 25': False, 'Test 26': False, 'Test 27': False, 'Test 28': False, 'Test 29': False,
                     'Test 30': False, 'Test 31': False}
-            
+    debug = False
+
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -59,7 +60,6 @@ def test_prep():
             shutil.rmtree(".indy/pool/" + MyVars.pool_name)
         except IOError as E:
             print(Colors.FAIL + str(E) + Colors.ENDC)
-
 
 
 async def demo():
@@ -289,7 +289,7 @@ async def demo():
         input(Colors.WARNING + "\n\nVerified add identity (no role) by Steward1" + Colors.ENDC)
 
     # 16. Verify GET_NYM for user -no role- ---------------------------------------------------------------
-    print(Colors.HEADER + "\n\t16. Verify get nym for user4\n" + Colors.ENDC )
+    print(Colors.HEADER + "\n\t16. Verify get nym for user4\n" + Colors.ENDC)
     get_nym_txn_req6 = await ledger.build_get_nym_request(steward1_did, user4_did)
     try:
         get_nym_txn_resp6 = await ledger.submit_request(MyVars.pool_handle, get_nym_txn_req6)
@@ -398,7 +398,7 @@ async def demo():
         print(str(E))
 
     if MyVars.debug:
-        print(30*"=")
+        print(30 * "=")
         print("\n" + get_nym_txn2)
         stringToJson = json.loads(get_nym_txn2)
         getNYMData = stringToJson['result']['data']
@@ -684,6 +684,6 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(demo())
 loop.close()
 
-print("\n\nResults\n+" + 40*"=" + "+")
+print("\n\nResults\n+" + 40 * "=" + "+")
 final_results()
 
