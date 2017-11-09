@@ -48,12 +48,6 @@ def test_prep():
     import os
 
     os.path.expanduser('~')
-    
-    if os.path.exists(".indy/wallet/" + MyVars.wallet_name):
-        try:
-            shutil.rmtree(".indy/wallet/" + MyVars.wallet_name)
-        except IOError as E:
-            print(Colors.FAIL + str(E) + Colors.ENDC)
 
     if os.path.exists(".indy/wallet/" + MyVars.wallet_name):
         try:
