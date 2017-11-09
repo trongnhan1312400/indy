@@ -11,6 +11,9 @@ import os.path
 import logging
 import shutil
 import time
+
+sys.path.append("../")
+
 from utils.report import TestReport
 from indy import signus, wallet, pool
 from indy.error import IndyError

@@ -5,6 +5,9 @@ import os
 import asyncio
 import shutil
 import time
+
+sys.path.append("../")
+
 from indy import pool, signus, wallet
 from indy.error import IndyError
 from utils.constant import Colors, Constant
