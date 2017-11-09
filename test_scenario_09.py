@@ -246,13 +246,14 @@ async def do():
     print(Colors.HEADER + "\n\t10.  Verify GET NYM - no role\n" + Colors.ENDC)
     MyVars.test_results["Test 10"] = await get_nym(trustee1_did, user3_did)
 
-    # 11. Using Trustee1 to create a TGB role.
-    print(Colors.HEADER + "\n\t11.  Using Trustee1 to create a TGB role\n" + Colors.ENDC)
-    MyVars.test_results["Test 11"] = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, None, MyVars.roles[3], can_add=True)
-
-    # 12. Verify GET NYM.
-    print(Colors.HEADER + "\n\t12.  Verify GET NYM - TGB1\n" + Colors.ENDC)
-    MyVars.test_results["Test 12"] = await get_nym(trustee1_did, tgb1_did)
+    # # 11. Using Trustee1 to create a TGB role.
+    # print(Colors.HEADER + "\n\t11.  Using Trustee1 to create a TGB role\n" + Colors.ENDC)
+    # MyVars.test_results["Test 11"] = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, 
+    #                                                None, MyVars.roles[3], can_add=True)
+    # 
+    # # 12. Verify GET NYM.
+    # print(Colors.HEADER + "\n\t12.  Verify GET NYM - TGB1\n" + Colors.ENDC)
+    # MyVars.test_results["Test 12"] = await get_nym(trustee1_did, tgb1_did)
 
     # 13. Using Steward1 to create TrustAnchor1.
     print(Colors.HEADER + "\n\t13.  Using Steward1 to create TrustAnchor1\n" + Colors.ENDC)
