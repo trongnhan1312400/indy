@@ -80,7 +80,6 @@ async def add_nym(submitter_did, target_did, ver_key, alias, role, can_add):
 
 async def get_nym(submitter_did, target_did):
     get_nym_request = await ledger.build_get_nym_request(submitter_did, target_did)
-
     try:
         await ledger.submit_request(MyVars.pool_handle, get_nym_request)
         return True
@@ -151,71 +150,71 @@ async def do():
     (trustee1_did,
      trustee1_verkey,
      trustee1_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                         json.dumps({"seed": seed_trustee1}))
+                                                         json.dumps({}))
 
     (trustee2_did,
      trustee2_verkey,
      trustee2_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                         json.dumps({"seed": seed_trustee2}))
+                                                         json.dumps({}))
 
     (steward1_did,
      steward1_verkey,
      steward1_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                         json.dumps({"seed": seed_steward1}))
+                                                         json.dumps({}))
 
     (steward2_did,
      steward2_verkey,
      steward2_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                         json.dumps({"seed": seed_steward2}))
+                                                         json.dumps({}))
 
     (steward3_did,
      steward3_verkey,
      steward3_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                         json.dumps({"seed": seed_steward3}))
+                                                         json.dumps({}))
 
     (tgb1_did,
      tgb1_verkey,
      tgb1_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                     json.dumps({"seed": seed_tgb1}))
+                                                     json.dumps({}))
 
     (trustanchor1_did,
      trustanchor1_verkey,
      trustanchor1_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                             json.dumps({"seed": seed_trustanchor1}))
+                                                             json.dumps({}))
 
     (trustanchor2_did,
      trustanchor2_verkey,
      trustanchor2_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                             json.dumps({"seed": seed_trustanchor2}))
+                                                             json.dumps({}))
 
     (trustanchor3_did,
      trustanchor3_verkey,
      trustanchor3_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle,
-                                                             json.dumps({"seed": seed_trustanchor3}))
+                                                             json.dumps({}))
 
     (user1_did,
      user1_verkey,
-     user1_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_user1}))
+     user1_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({}))
 
     (user2_did,
      user2_verkey,
-     user2_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_user2}))
+     user2_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({}))
 
     (user3_did,
      user3_verkey,
-     user3_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_user3}))
+     user3_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({}))
 
     (user4_did,
      user4_verkey,
-     user4_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_user4}))
+     user4_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({}))
 
     (user5_did,
      user5_verkey,
-     user5_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_user5}))
+     user5_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({}))
 
     (user6_did,
      user6_verkey,
-     user6_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_user6}))
+     user6_pk) = await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({}))
 
     # ==========================================================================================================
     # Test starts here !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
