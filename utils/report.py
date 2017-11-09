@@ -14,7 +14,7 @@ class TestReport:
 
     def __init__(self, test_case_name):
         self.__test_result = {}
-        self.__test_result["tescase"] = test_case_name
+        self.__test_result["testcase"] = test_case_name
         self.__test_result["result"] = True
         self.__test_result["starttime"] = str(time.strftime("%Y%m%d_%H:%M:%S"))
 
