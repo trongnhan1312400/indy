@@ -401,6 +401,8 @@ async def do():
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
+    logger.info("Test scenario 09 -> finished")
+
 
 def final_result():
     if all(value is True for value in MyVars.test_results.values()):
