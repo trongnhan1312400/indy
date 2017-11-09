@@ -20,7 +20,7 @@ class MyVars:
     pool_name = "pool_genesis_test3"
     wallet_name = "test_wallet3"
     debug = False
-    test_report = TestReport("Test scenario 03: Check connection")
+    test_report = TestReport("Test_scenario_03_Check_Connection")
     test_results = {"Test 4": False, "Test 5": False, "Test 6": False}
 
 

@@ -32,7 +32,7 @@ class MyVars:
     # Need the path to the pool transaction file location
     pool_genesis_txn_file = Constant.pool_genesis_txn_file
     wallet_handle = 0
-    test_report = TestReport("Test scenario 04: Keyrings Wallets")
+    test_report = TestReport("Test_scenario_04_Keyrings_Wallets")
     pool_name = generate_random_string("test_pool", length=10)
     wallet_name = generate_random_string("test_wallet", length=10)
     print(("pool_name: %s\nwallet_name: %s") % (pool_name, wallet_name))
