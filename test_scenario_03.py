@@ -81,38 +81,45 @@ async def do():
         sys.exit[1]
 
     try:
-        MyVars.wallet_handle = await wallet.open_wallet(MyVars.wallet_name, None, None)
+        MyVars.wallet_handle = wallet.open_wallet(MyVars.wallet_name, None, None)
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
+    # 4. Create DID
     print(Colors.HEADER + "\n\t4. Create DID's\n" + Colors.ENDC)
     try:
         await signus.create_and_store_my_did(MyVars.wallet_handle, json.dumps({"seed": seed_trustee01}))
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    print(Colors.HEADER + "\n\t5.  Connect test\n" + Colors.ENDC)
+    # 5. Connect to pool.
+    # Verify that the default wallet move to Test from NoEnv?
+    # Cannot verify because .indy/wallet don't have any folder that name
+    # no-env and test and default wallet cannot be created via indy-sdk
+    print(Colors.HEADER + "\n\t5.  Connect to pool\n" + Colors.ENDC)
     try:
         MyVars.pool_handle = await pool.open_pool_ledger(MyVars.pool_name, None)
-        MyVars.test_results["Test 5"] = True
     except IndyError as E:
+        MyVars.test_results["Test 5"] = True
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    print(Colors.HEADER + "\n\t6.  Disconnect\n" + Colors.ENDC)
+    # 6. Disconnect from pool.
+    print(Colors.HEADER + "\n\t6.  Disconnect from pool\n" + Colors.ENDC)
     try:
         await pool.close_pool_ledger(MyVars.pool_handle)
         MyVars.test_results["Test 6"] = True
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    print(Colors.HEADER + "\n\t7.  Reconnect\n" + Colors.ENDC)
+    # 7. Reconnect to pool.
+    print(Colors.HEADER + "\n\t7.  Reconnect to pool\n" + Colors.ENDC)
     try:
         MyVars.pool_handle = await pool.open_pool_ledger(MyVars.pool_name, None)
         MyVars.test_results["Test 7"] = True
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    # 8. Close pool ledger and wallet
+    # 8. Close pool ledger and wallet.
     print(Colors.HEADER + "\n\t8.  Close pool ledger and wallet\n" + Colors.ENDC)
     try:
         await wallet.close_wallet(MyVars.wallet_handle)
@@ -120,13 +127,15 @@ async def do():
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    # 9. Delete wallet
+    # 9. Delete wallet.
     print(Colors.HEADER + "\n\t9.  Delete pool ledger and wallet\n" + Colors.ENDC)
     try:
         await wallet.delete_wallet(MyVars.wallet_name, None)
         await pool.delete_pool_ledger_config(MyVars.pool_name)
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
+
+    logger.info("Test scenario 3 -> finished")
 
 
 def final_result():
