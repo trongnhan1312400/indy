@@ -347,7 +347,7 @@ async def do():
     print(Colors.HEADER + "\n\t26.  Using Trustee1 to add Steward1 and TGB1\n" + Colors.ENDC)
     temp = await add_nym(trustee1_did, steward1_did, steward2_verkey, None, MyVars.roles[1], can_add=True)
     MyVars.test_results["Test 26"] = temp
-    
+
     # TGB role not exist
     # temp = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, None, MyVars.roles[3], can_add=True)
     # MyVars.test_results["Test 26"] = MyVars.test_results["Test 26"] and temp
@@ -383,7 +383,7 @@ async def do():
     # 31. Verify Steward can add a TrustAnchor.
     print(Colors.HEADER + "\n\t31.  Verify Steward can add a TrustAnchor\n" + Colors.ENDC)
     MyVars.test_results["Test 31"] = await add_nym(steward2_did, trustanchor3_did, trustanchor3_verkey,
-                                                   None, MyVars.roles[3], can_add=True)
+                                                   None, MyVars.roles[2], can_add=True)
 
     # 32. Close pool ledger and wallet.
     print(Colors.HEADER + "\n\t32.  Close pool ledger and wallet\n" + Colors.ENDC)
