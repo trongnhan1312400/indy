@@ -5,10 +5,13 @@ import os
 import asyncio
 import shutil
 import time
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from indy import pool, signus, wallet
 from indy.error import IndyError
-from ..utils.constant import Colors, Constant
-from ..utils.report import TestReport
+from utils.constant import Colors, Constant
+from utils.report import TestReport
 
 
 class MyVars:
