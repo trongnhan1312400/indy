@@ -240,12 +240,7 @@ async def do():
 
     # 9. Verify add identity (no role) by Trustee1.
     print(Colors.HEADER + "\n\t9.  Add identity (no role) by Trustee1\n" + Colors.ENDC)
-    nym_txn_req3 = await ledger.build_nym_request(trustee1_did, user3_did, user3_verkey, None, None)
-    try:
-        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym_txn_req3)
-        MyVars.test_results['Test 9'] = True
-    except IndyError as E:
-        print(Colors.FAIL + str(E) + Colors.ENDC)
+    MyVars.test_results["Test 9"] = await add_nym(trustee1_did, user3_did, user3_verkey, None, None, can_add=True)
 
     # 10. Verify GET NYM.
     print(Colors.HEADER + "\n\t10.  Verify GET NYM - no role\n" + Colors.ENDC)
@@ -253,8 +248,7 @@ async def do():
 
     # 11. Using Trustee1 to create a TGB role.
     print(Colors.HEADER + "\n\t11.  Using Trustee1 to create a TGB role\n" + Colors.ENDC)
-    MyVars.test_results["Test 11"] = await add_nym(trustee1_did, tgb1_did, tgb1_verkey,
-                                                   None, MyVars.roles[3], can_add=True)
+    MyVars.test_results["Test 11"] = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, None, MyVars.roles[3], can_add=True)
 
     # 12. Verify GET NYM.
     print(Colors.HEADER + "\n\t12.  Verify GET NYM - TGB1\n" + Colors.ENDC)
