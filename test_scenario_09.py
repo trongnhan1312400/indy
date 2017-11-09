@@ -246,11 +246,12 @@ async def do():
     print(Colors.HEADER + "\n\t10.  Verify GET NYM - no role\n" + Colors.ENDC)
     MyVars.test_results["Test 10"] = await get_nym(trustee1_did, user3_did)
 
+    # TGB role not exist
     # # 11. Using Trustee1 to create a TGB role.
     # print(Colors.HEADER + "\n\t11.  Using Trustee1 to create a TGB role\n" + Colors.ENDC)
-    # MyVars.test_results["Test 11"] = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, 
+    # MyVars.test_results["Test 11"] = await add_nym(trustee1_did, tgb1_did, tgb1_verkey,
     #                                                None, MyVars.roles[3], can_add=True)
-    # 
+    #
     # # 12. Verify GET NYM.
     # print(Colors.HEADER + "\n\t12.  Verify GET NYM - TGB1\n" + Colors.ENDC)
     # MyVars.test_results["Test 12"] = await get_nym(trustee1_did, tgb1_did)
@@ -346,9 +347,10 @@ async def do():
     print(Colors.HEADER + "\n\t26.  Using Trustee1 to add Steward1 and TGB1\n" + Colors.ENDC)
     temp = await add_nym(trustee1_did, steward1_did, steward2_verkey, None, MyVars.roles[1], can_add=True)
     MyVars.test_results["Test 26"] = temp
-
-    temp = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, None, MyVars.roles[3], can_add=True)
-    MyVars.test_results["Test 26"] = MyVars.test_results["Test 26"] and temp
+    
+    # TGB role not exist
+    # temp = await add_nym(trustee1_did, tgb1_did, tgb1_verkey, None, MyVars.roles[3], can_add=True)
+    # MyVars.test_results["Test 26"] = MyVars.test_results["Test 26"] and temp
 
     # 27. Verify that Steward1 cannot add back a TrustAnchor removed by TrustTee.
     print(Colors.HEADER + "\n\t27. Verify that Steward1 cannot add back a TrustAnchor removed by TrustTee\n"
