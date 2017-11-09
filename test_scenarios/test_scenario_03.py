@@ -5,13 +5,10 @@ import os
 import asyncio
 import shutil
 import time
-
-sys.path.append("../utils/")
-
 from indy import pool, signus, wallet
 from indy.error import IndyError
-from constant import Colors, Constant
-from report import TestReport
+from ..utils.constant import Colors, Constant
+from ..utils.report import TestReport
 
 
 class MyVars:
