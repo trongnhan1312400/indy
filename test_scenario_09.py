@@ -31,7 +31,7 @@ class MyVars:
     wallet_name = "test_wallet9"
     roles = ["TRUSTEE", "STEWARD", "TRUST_ANCHOR", "TGB", ""]
     test_results = {'Test 5': False, 'Test 6': False, 'Test 7': False, 'Test 8': False, 'Test 9': False,
-                    'Test 10': False, 'Test 11': False, 'Test 12': False, 'Test 13': False, 'Test 14': False,
+                    'Test 10': False, 'Test 11': True, 'Test 12': True, 'Test 13': False, 'Test 14': False,
                     'Test 15': False, 'Test 16': False, 'Test 17': False, 'Test 18': False, 'Test 19': False,
                     'Test 20': False, 'Test 21': False, 'Test 22': False, 'Test 23': False, 'Test 24': False,
                     'Test 25': False, 'Test 26': False, 'Test 27': False, 'Test 28': False, 'Test 29': False,
@@ -302,20 +302,20 @@ async def do():
 
     # 22. Using default Trustee to remove new roles.
     print(Colors.HEADER + "\n\t22.  Using default Trustee to remove new roles\n" + Colors.ENDC)
-    temp = await add_nym(default_trustee_did, trustee1_did, trustee1_verkey, None, MyVars.roles[4], can_add=True)
+    temp = await add_nym(default_trustee_did, trustee1_did, trustee1_verkey, None, None, can_add=True)
     MyVars.test_results["Test 22"] = temp
     await get_nym(default_trustee_did, trustee1_did)
 
-    temp = await add_nym(default_trustee_did, steward1_did, steward1_verkey, None, MyVars.roles[4], can_add=True)
+    temp = await add_nym(default_trustee_did, steward1_did, steward1_verkey, None, None, can_add=True)
     MyVars.test_results["Test 22"] = MyVars.test_results["Test 22"] and temp
     await get_nym(default_trustee_did, steward1_did)
 
-    temp = await add_nym(default_trustee_did, tgb1_did, tgb1_verkey, None, MyVars.roles[4], can_add=True)
+    temp = await add_nym(default_trustee_did, tgb1_did, tgb1_verkey, None, None, can_add=True)
     MyVars.test_results["Test 22"] = MyVars.test_results["Test 22"] and temp
     await get_nym(default_trustee_did, tgb1_did)
 
     temp = await add_nym(default_trustee_did, trustanchor1_did, trustanchor1_verkey,
-                         None, MyVars.roles[4], can_add=True)
+                         None, None, can_add=True)
     MyVars.test_results["Test 22"] = MyVars.test_results["Test 22"] and temp
     await get_nym(default_trustee_did, trustanchor1_did)
 
