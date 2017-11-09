@@ -345,7 +345,7 @@ async def do():
 
     # 26. Using Trustee1 to add Steward1 and TGB1.
     print(Colors.HEADER + "\n\t26.  Using Trustee1 to add Steward1 and TGB1\n" + Colors.ENDC)
-    temp = await add_nym(trustee1_did, steward1_did, steward2_verkey, None, MyVars.roles[1], can_add=True)
+    temp = await add_nym(trustee1_did, steward1_did, steward1_verkey, None, MyVars.roles[1], can_add=True)
     MyVars.test_results["Test 26"] = temp
 
     # TGB role not exist
