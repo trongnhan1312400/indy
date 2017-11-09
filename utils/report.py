@@ -6,6 +6,7 @@ Created on Nov 9, 2017
 
 import json
 import time
+import os
 
 class TestReport:
     '''
@@ -29,8 +30,8 @@ class TestReport:
         step = "step" + str(step)
         self.__test_result[step] = content
 
-    def write_result_to_file(self, path):
-        path = str(path)
-        with open(path + self.__test_result["testcase"] + ".json", "w") as outfile:
+    def write_result_to_file(self):
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        with open(dir_path + self.__test_result["testcase"] + ".json", "w") as outfile:
             json.dump(self.__test_result, outfile, ensure_ascii=False)
 

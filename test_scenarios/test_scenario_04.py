@@ -12,7 +12,7 @@ import logging
 import shutil
 import time
 
-sys.path.append("../")
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from utils.report import TestReport
 from indy import signus, wallet, pool
@@ -190,7 +190,7 @@ loop.run_until_complete(test_scenario_04_keyrings_wallets())
 loop.close()
 
 MyVars.test_report.set_duration(time.time() - begin_time)
-MyVars.test_report.write_result_to_file("")
+MyVars.test_report.write_result_to_file()
 
 print("\n\nResults\n+" + 40 * "=" + "+")
 final_results()

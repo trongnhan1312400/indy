@@ -165,7 +165,7 @@ def test():
     MyVars.test_report.set_duration(time.time() - begin_time)
     final_result()
 
-    MyVars.test_report.write_result_to_file("")
+    MyVars.test_report.write_result_to_file()
 
 
 test()
