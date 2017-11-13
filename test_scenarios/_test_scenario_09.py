@@ -390,7 +390,7 @@ async def demo():
     # Create a dict for the parts of this test, use this to determine if everything worked
     parts22 = {'req22a': False, 'req22b': False, 'req22c': False, 'req22d': False}
 
-    nym_txn_req11 = await ledger.build_nym_request(default_trustee_did, trustee1_did, None, None, " ")
+    nym_txn_req11 = await ledger.build_nym_request(default_trustee_did, trustee1_did, None, None, roles[4])
 
     try:
         await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, default_trustee_did,
@@ -399,7 +399,7 @@ async def demo():
     except IndyError as E:
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
-    nym_txn_req12 = await ledger.build_nym_request(default_trustee_did, steward1_did, None, None, " ")
+    nym_txn_req12 = await ledger.build_nym_request(default_trustee_did, steward1_did, None, None, roles[4])
     get_nym_txn = await ledger.build_get_nym_request(default_trustee_did, trustee1_did)
 
     try:
@@ -433,7 +433,7 @@ async def demo():
 
     await asyncio.sleep(0)
 
-    nym_txn_req13 = await ledger.build_nym_request(default_trustee_did, tgb1_did, None, None, " ")
+    nym_txn_req13 = await ledger.build_nym_request(default_trustee_did, tgb1_did, None, None, roles[4])
     try:
         await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, default_trustee_did,
                                              nym_txn_req13)
@@ -442,7 +442,7 @@ async def demo():
         print(Colors.FAIL + str(E) + Colors.ENDC)
 
     nym_txn_req14 = await ledger.build_nym_request(default_trustee_did, trustanchor1_did, None, None,
-                                                   " ")
+                                                   roles[4])
     try:
         await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, default_trustee_did,
                                              nym_txn_req14)
