@@ -31,8 +31,7 @@ class MyVars:
 
     pool_handle = 0
     # Need the path to the pool transaction file location
-    pool_genesis_txn_file = os.path.expanduser("~") + "/PycharmProjects/.sdktesting/pool_transactions_sandbox_" \
-                                                      "genesis_blskey"
+    pool_genesis_txn_file = ".sovrin/pool_transactions_sandbox_genesis"
     wallet_handle = 0
     pool_name = "test_pool09"
     wallet_name = "test_wallet09"
@@ -55,7 +54,7 @@ def test_prep():
     print(Colors.HEADER + "\n\tCheck if the wallet and pool for this test already exist and delete them...\n"
           + Colors.ENDC)
     x = os.path.expanduser('~')
-    work_dir = x + os.sep + ".indy_client"
+    work_dir = ".indy"
 
     if os.path.exists(work_dir + "/pool/" + MyVars.pool_name):
         try:
