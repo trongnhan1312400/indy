@@ -415,7 +415,7 @@ async def test_09_remove_and_add_role():
     print(Colors.HEADER + "\n\t22.  Using default Trustee to remove new roles\n" + Colors.ENDC)
     message_22 = ""
     (temp, message) = await add_nym(default_trustee_did, trustee1_did, trustee1_verkey,
-                                    None, "", can_add=True)
+                                    None, Roles.NONE, can_add=True)
     MyVars.test_results["Step 22"] = temp
     if not temp:
         message_22 += "\nCannot remove Trustee1's role - " + message

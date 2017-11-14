@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="025c05c9-da4f-45d4-a2b9-06cddc4ce4fc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_scenarios/test_add_and_remove_role.py" afterPath="$PROJECT_DIR$/test_scenarios/test_add_and_remove_role.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_scenarios/test_scenario_09.py" afterPath="$PROJECT_DIR$/test_scenarios/test_scenario_09.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test_scenario_09.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_scenario_09.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_scenarios/test_scenario_09.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10248">
-              <caret line="626" column="4" lean-forward="true" selection-start-line="626" selection-start-column="4" selection-end-line="652" selection-end-column="49" />
+            <state relative-caret-position="-315">
+              <caret line="417" column="52" lean-forward="false" selection-start-line="417" selection-start-column="52" selection-end-line="417" selection-end-column="52" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -37,7 +37,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_add_and_remove_role.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test_add_and_remove_role.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_scenarios/test_add_and_remove_role.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="687">
@@ -144,8 +144,8 @@
         <option value="$PROJECT_DIR$/test_scenarios/test_scenario_02.py" />
         <option value="$PROJECT_DIR$/test_scenarios/test_scenario_03.py" />
         <option value="$PROJECT_DIR$/utils/report.py" />
-        <option value="$PROJECT_DIR$/test_scenarios/test_scenario_09.py" />
         <option value="$PROJECT_DIR$/test_scenarios/test_add_and_remove_role.py" />
+        <option value="$PROJECT_DIR$/test_scenarios/test_scenario_09.py" />
       </list>
     </option>
   </component>
@@ -718,16 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_scenarios/test_scenario_09.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10248">
-          <caret line="626" column="4" lean-forward="true" selection-start-line="626" selection-start-column="4" selection-end-line="652" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_scenarios/test_scenario_04.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -750,6 +740,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="687">
           <caret line="150" column="24" lean-forward="false" selection-start-line="150" selection-start-column="24" selection-end-line="150" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_scenarios/test_scenario_09.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-315">
+          <caret line="417" column="52" lean-forward="false" selection-start-line="417" selection-start-column="52" selection-end-line="417" selection-end-column="52" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
