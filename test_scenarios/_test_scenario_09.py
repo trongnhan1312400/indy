@@ -33,8 +33,8 @@ class MyVars:
     # Need the path to the pool transaction file location
     pool_genesis_txn_file = ".sovrin/pool_transactions_sandbox_genesis"
     wallet_handle = 0
-    pool_name = "test_pool09"
-    wallet_name = "test_wallet09"
+    pool_name = "test_pool091"
+    wallet_name = "test_wallet091"
     debug = False
     test_results = {'Test 5': False, 'Test 6': False, 'Test 7': False, 'Test 8': False, 'Test 9': False,
                     'Test 10': False, 'Test 13': False, 'Test 14': False, 'Test 15': False, 'Test 16': False,
