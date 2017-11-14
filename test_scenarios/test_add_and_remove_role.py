@@ -121,7 +121,7 @@ async def do():
     print(Colors.HEADER + "\n\t5.  Add Trustee by default Trustee\n" + Colors.ENDC)
     try:
         nym = await ledger.build_nym_request(default_trustee_did, trustee1_did, trustee1_verkey, None, "TRUSTEE")
-        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, nym)
+        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, default_trustee_did, nym)
         MyVars.test_results["Step 5"] = True
     except IOError as E:
         print(str(E))
@@ -129,8 +129,8 @@ async def do():
     # 6. Remove Trustee by default Trustee
     print(Colors.HEADER + "\n\t6. Remove Trustee by default Trustee\n" + Colors.ENDC)
     try:
-        nym = await ledger.build_nym_request(default_trustee_did, trustee1_did, trustee1_verkey, None, "TRUSTEE")
-        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, nym)
+        nym = await ledger.build_nym_request(default_trustee_did, trustee1_did, trustee1_verkey, None, "")
+        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, default_trustee_did, nym)
         MyVars.test_results["Step 6"] = True
     except IOError as E:
         print(str(E))
@@ -139,14 +139,14 @@ async def do():
     print(Colors.HEADER + "\n\t7. Use removed Trutee to create Steward and Trustee\n" + Colors.ENDC)
     try:
         nym = await ledger.build_nym_request(trustee1_did, trustee2_did, trustee2_verkey, None, "TRUSTEE")
-        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, nym)
+        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym)
     except IOError as E:
         MyVars.test_results["Step 7"] = False
         print(str(E))
 
     try:
         nym = await ledger.build_nym_request(trustee1_did, steward1_did, steward1_verkey, None, "STEWARD")
-        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, nym)
+        await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym)
     except IOError as E:
         MyVars.test_results["Step 7"] = False
         print(str(E))
