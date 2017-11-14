@@ -254,10 +254,10 @@ async def demo():
     if MyVars.debug:
         input(Colors.WARNING + "\n\nVerify added identity and get the nym..." + Colors.ENDC)
 
-    # # 11. Using Trustee1 create a TGB1
-    # print(Colors.HEADER + "\n\tUse Trustee1 to create TGB1\n" + Colors.ENDC)
-    # nym_txn_req4 = await ledger.build_nym_request(trustee1_did, tgb1_did, tgb1_verkey, None, roles[3])
-    # await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym_txn_req4)
+    # 11. Using Trustee1 create a TGB1
+    print(Colors.HEADER + "\n\tUse Trustee1 to create TGB1\n" + Colors.ENDC)
+    nym_txn_req4 = await ledger.build_nym_request(trustee1_did, tgb1_did, tgb1_verkey, None, roles[3])
+    await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym_txn_req4)
 
     # # 12. Verify GET_NYM
     # print(Colors.HEADER + "\n\t12. Get nyms for TGB1\n" + Colors.ENDC)
