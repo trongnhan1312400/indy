@@ -140,15 +140,15 @@ async def do():
     try:
         nym = await ledger.build_nym_request(trustee1_did, trustee2_did, trustee2_verkey, None, "TRUSTEE")
         await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym)
-    except IOError as E:
         MyVars.test_results["Step 7"] = False
+    except IOError as E:
         print(str(E))
 
     try:
         nym = await ledger.build_nym_request(trustee1_did, steward1_did, steward1_verkey, None, "STEWARD")
         await ledger.sign_and_submit_request(MyVars.pool_handle, MyVars.wallet_handle, trustee1_did, nym)
-    except IOError as E:
         MyVars.test_results["Step 7"] = False
+    except IOError as E:
         print(str(E))
 
     # =========================================================================================
