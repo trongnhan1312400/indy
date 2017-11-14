@@ -93,7 +93,7 @@ async def demo():
     seed_user5 = "RandomUser5000000000000000000000"
     seed_user6 = "RandomUser6000000000000000000000"
     # pool_genesis_txn_path = get_pool_genesis_txn_path(MyVars.pool_name)  #  ...
-    roles = ("0", "2", "101", "100", "")
+    roles = ("TRUSTEE", "STEWARD", "TRUST_ANCHOR", "TGB", "ROLE_REMOVE")
 
     # 1. Create ledger config from genesis txn file  ---------------------------------------------------------
     print(Colors.HEADER + "\n\t1.  Create Ledger\n" + Colors.ENDC)
