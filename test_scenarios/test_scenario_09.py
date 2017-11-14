@@ -420,7 +420,7 @@ async def test_09_remove_and_add_role():
     print(Colors.HEADER + "\n\t22.  Using default Trustee to remove new roles\n" + Colors.ENDC)
     message_22 = ""
     (temp, message) = await add_nym(default_trustee_did, trustee1_did, trustee1_verkey,
-                                    None, Roles.None, can_add=True)
+                                    None, Roles.NONE, can_add=True)
     MyVars.test_results["Step 22"] = temp
     if not temp:
         message_22 += "\nCannot remove Trustee1's role - " + message
@@ -431,7 +431,7 @@ async def test_09_remove_and_add_role():
         message_22 += "\nCannot check GET_NYM for Trustee1 - " + message
 
     (temp, message) = await add_nym(default_trustee_did, steward1_did, steward1_verkey,
-                                    None, Roles.None, can_add=True)
+                                    None, Roles.NONE, can_add=True)
     MyVars.test_results["Step 22"] = MyVars.test_results["Step 22"] and temp
     MyVars.test_results["Step 22"] = MyVars.test_results["Step 22"] and temp
     if not temp:
@@ -442,7 +442,7 @@ async def test_09_remove_and_add_role():
     if not temp:
         message_22 += "\nCannot check GET_NYM for Steward1 - " + message
 
-    (temp, message) = await add_nym(default_trustee_did, tgb1_did, tgb1_verkey, None, Roles.None, can_add=True)
+    (temp, message) = await add_nym(default_trustee_did, tgb1_did, tgb1_verkey, None, Roles.NONE, can_add=True)
     MyVars.test_results["Step 22"] = MyVars.test_results["Step 22"] and temp
     if not temp:
         message_22 += "\nCannot remove TGB's role - " + message
@@ -453,7 +453,7 @@ async def test_09_remove_and_add_role():
         message_22 += "\nCannot check GET_NYM for TGB - " + message
 
     (temp, message) = await add_nym(default_trustee_did, trustanchor1_did, trustanchor1_verkey,
-                                    None, Roles.None can_add=True)
+                                    None, Roles.NONE, can_add=True)
     MyVars.test_results["Step 22"] = MyVars.test_results["Step 22"] and temp
 
     if not temp:
